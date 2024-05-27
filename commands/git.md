@@ -63,6 +63,10 @@ move the commit to Unstage
 ```
 git  reset --soft HEAD~<number_Of_commits>
 ```
+reset the changes to HEAD
+```
+git reset --hard
+```
 ---
 ## _Alias_
 create alias
