@@ -1,12 +1,3 @@
-# Zookeeper Setup
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: dev
-  labels:
-    name: dev
-
----
 # Zookeeper Properties
 kind: ConfigMap
 apiVersion: v1

@@ -4,6 +4,7 @@
 ```
 docker --version
 ```
+---
 # _Containers_
 List all currently running containers.
 ```
@@ -29,7 +30,7 @@ Remove Docker Container
 ```
 docker rm <container_id>
 ```
-
+---
 # _Images_
 List all Docker images on your local system.
 ```
@@ -60,7 +61,7 @@ DockerHub Login
 ```
 docker login
 ```
-
+---
 # _Networks_
 Lists all Docker networks.
 ```
@@ -78,6 +79,7 @@ Disconnect Container from Network
 ```
 docker network disconnect <network_name> <container_id>
 ```
+---
 # _Volumes_
 Lists all Docker volumes.
 ```

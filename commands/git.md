@@ -25,17 +25,17 @@ git remote add origin https://github.com/vatsan127/producer-events.git
 ```
 git push -u origin master
 ```
+---
 ## _Logs_
 ```
 git log --oneline
 ```
-
+---
 ## _cherry-pick_
-
 ```
 git cherry-pick -m 1 <commit-ID>
 ```
-
+---
 ## _Amend_
 
 edit Last Commit message
@@ -49,7 +49,7 @@ add current changes to previous commit
 ```
 git commit --amend -m "new Commit message"
 ```
-
+---
 ## _Commit_
 
 revert last commit
@@ -63,7 +63,7 @@ move the commit to Unstage
 ```
 git  reset --soft HEAD~<number_Of_commits>
 ```
-
+---
 ## _Alias_
 create alias
 ```
@@ -89,3 +89,4 @@ alias.rh reset --hard
 alias.cp cherry-pick -m 1
 alias.cm commit -m
 ```
+---

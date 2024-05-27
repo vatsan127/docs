@@ -1,6 +1,5 @@
 # _Kafka Commands_
 ## _Topic_
-
 List the topics in a cluster
 ```
 kafka-topics --bootstrap-server kafka-service:9092 --list
@@ -21,7 +20,7 @@ Alter topic partition
 ```
 kafka-topics --bootstrap-server kafka-service:9092 --alter --topic test-topic --partitions 40
 ```
-
+---
 ## _Producer_
 Produce Kafka Message
 ```
@@ -31,6 +30,7 @@ Produce Messages with Key and Value to the topic
 ```
 kafka-console-producer --bootstrap-server kafka-service:9092 --topic test-topic --property "key.separator=-" --property "parse.key=true"
 ```
+---
 ## _Consumer_
 Consume Kafka Message
 ```
@@ -52,16 +52,17 @@ Describe Consumer groups
 ```
 kafka-consumer-groups --bootstrap-server kafka-service:9092 --describe --group console-consumer-41911
 ```
-
+---
 ## _Setting up min.insync.replica_
 ```
 kafka-configs  --bootstrap-server kafka-service:9092 --entity-type topics --entity-name test-topic --alter --add-config min.insync.replicas=2
 ```
-
+---
 ## _Properties_
 ```
 /etc/kafka/server.properties
 ```
+---
 ## _Logs_
 log path
 ```
@@ -71,5 +72,5 @@ log path
 commit logs
 ```
 kafka-run-class kafka.tools.DumpLogSegments --deep-iteration --files /var/lib/kafka/data/test-topic-0/00000000000000000000.log
-
 ```
+---
