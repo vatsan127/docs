@@ -1,0 +1,63 @@
+# Zookeeper Setup
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: dev
+  labels:
+    name: dev
+
+---
+# Zookeeper Properties
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: zookeeper-config-v1
+  namespace: dev
+data:
+  ZOOKEEPER_CLIENT_PORT: "2181"
+  ZOOKEEPER_SERVER_ID: "1"
+  ZOOKEEPER_SERVERS: "zookeeper:2888:3888"
+
+---
+# Zookeeper Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper-service
+  namespace: dev
+spec:
+  selector:
+    app: zookeeper
+  ports:
+    - name: http
+      port: 2181
+      protocol: TCP
+  type: ClusterIP
+
+---
+# Zookeeper Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  # Zookeeper Pod details
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+        service: zookeeper-service
+    spec:
+      containers:
+        - name: zookeeper
+          image: confluentinc/cp-zookeeper:7.3.2
+          ports:
+            - containerPort: 2181
+          envFrom:
+            - configMapRef:
+                name: zookeeper-config-v1
