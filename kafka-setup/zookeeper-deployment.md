@@ -1,3 +1,4 @@
+```
 # Zookeeper Properties
 kind: ConfigMap
 apiVersion: v1
@@ -52,3 +53,4 @@ spec:
           envFrom:
             - configMapRef:
                 name: zookeeper-config-v1
+```
