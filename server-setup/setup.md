@@ -16,6 +16,30 @@ java -version
 
 ----
 
+## _Alien RPM_
+
+```
+sudo apt install alien
+```
+
+```
+sudo alien -i tabby-1.0.207-linux-x64.rpm
+```
+
+----
+
+## _Git_
+
+```
+sudo apt install git-all
+```
+
+```
+git --version
+```
+
+----
+
 ## _Docker_
 
 ```
@@ -96,3 +120,13 @@ kubectl cluster-info --context kind-k8
 ```
 
 ----
+
+## _Kubectl Config_
+
+```
+kubectl config view
+```
+
+```
+sudo cp /root/.kube/config $HOME/.kube/config
+```
