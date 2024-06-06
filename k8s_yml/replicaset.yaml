@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello-world-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world
+      service: hw-service
+  template:
+    metadata:
+      name: hello-world-app
+      labels:
+        app: hello-world
+        service: hw-service
+    spec:
+      containers:
+        - name: hello-world
+          image: vatsan127/hello-world:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: hw-port
+              containerPort: 8080
+              protocol: TCP
+

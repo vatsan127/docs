@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-app
+  labels:
+    app: hello-world
+    service: hw-service
+spec:
+  containers:
+    - name: hello-world
+      image: vatsan127/hello-world:latest
+      imagePullPolicy: IfNotPresent
+      ports:
+        - name: hello-world-port
+          containerPort: 8080
+          protocol: TCP
+      envFrom:
+        - configMapRef:
+            name: configmapv1
+  restartPolicy: Always
+  
