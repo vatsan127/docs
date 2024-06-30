@@ -16,51 +16,34 @@ drop database test_db;
 
 ## _String Operators_
 
-sample data
-
-```
-create table cities
-(
-name       varchar(50),
-country    varchar(50),
-population integer,
-pincode    integer
-);
-
-insert into cities(name, country, population, pincode)
-values ('trl', 'india', 10000, 602001);
-insert into cities(name, country, population, pincode)
-values ('sbc', 'india', 9999, 506001);
-```
-
 concat
 
 ```
-select concat(name, ', ', cities.country) from cities;
+select concat(id, ',', name) from students ;
 ```
 
 concat using ||
 
 ```
-select name || ', ' || country from cities;
+select id  || ',' || name from students ;
 ```
 
 to upper
 
 ```
-select upper(name) from cities;
+select upper(name) from students ;
 ```
 
 to lower
 
 ```
-select lower(name) from cities;
+select lower(name) from students ;
 ```
 
 get length
 
 ```
-select length(name) from cities;
+select length(name) from students;
 ```
 
 ----
@@ -148,7 +131,7 @@ join <JOIN_TABLE> on
 <JOIN_TABLE>.ID = <MAIN_TABLE>.id;
 ```
 
-### _Join /Inner Join:_
+### _Join / Inner Join:_
 
 * Rows with reference in both tables will only be present
 
@@ -183,4 +166,53 @@ right join student_info on student_info.student_id = students.id;
 select name , details from students 
 full join student_info on student_info.student_id = students.id;
 ```
+
+### _Group By_
+
+* find the set of all unique user_id
+* takes each row and assign it to a group based on its user_id
+* can only select the grouped the column
+
+```
+select student_id  from student_info group by student_id;
+```
+
+----
+
+### _Aggregate Func_
+
+* count(<column_name>) null values are not counted
+* count(*) get total number of rows with null values
+* sum()
+* avg()
+* min()
+* max()
+
+----
+
+### _Combine GroupBy and AggregateFunc_
+
+```
+select student_id, max(id) from student_info group by student_id;
+```
+
+returns student_id and max value of the student_info.id, grouped by student_id.
+
+----
+
+#### _having_
+
+* filters set of groups
+
+----
+
+## _Unions:_
+
+* (QUERY_1) UNION (QUERY_2)  - removes duplicates
+* UNION ALL - does not remove duplicate
+* INTERSECT: find the rows in common AND removes duplicates
+* INTERSECT ALL: does not remove duplicates
+* EXCEPT: find the rows present that are present in first query but not second query,query order matters , Removes
+  duplicates
+* EXCEPT ALL: does not remove duplicate
 
