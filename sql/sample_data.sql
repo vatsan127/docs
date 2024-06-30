@@ -32,5 +32,6 @@ VALUES ('Born in 1995, likes painting.', 1),
        ('Loves playing musical instruments.', 3),
        ('Interested in astronomy.', 4),
        ('Enjoys playing soccer.', 5),
+       ('Enjoys cooking and traveling.', 5),
        ('this is null data 1', null),
        ('this is null data 2', null);

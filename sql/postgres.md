@@ -121,7 +121,7 @@ example:
 
 ----
 
-## _JOINS    (use sample data)_
+## _JOINS_
 
 Syntax:
 
@@ -203,6 +203,26 @@ returns student_id and max value of the student_info.id, grouped by student_id.
 #### _having_
 
 * filters set of groups
+* can be used on grouped columns or can be used with Aggregate Func
+* AggregateFunc can be used with columns other than grouped columns
+
+examples:
+
+```
+select student_id, count(id) as no_student_of_Details  from student_info  
+group by student_id 
+having student_id >  0;
+```
+
+example with aggregateFunc:
+
+```
+select student_id from student_info  
+group by student_id 
+having  count(id)  > 2;
+```
+
+returns student id with more 2 student_details_info
 
 ----
 
