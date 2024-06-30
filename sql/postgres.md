@@ -200,7 +200,7 @@ returns student_id and max value of the student_info.id, grouped by student_id.
 
 ----
 
-#### _having_
+## _having:_
 
 * filters set of groups
 * can be used on grouped columns or can be used with Aggregate Func
