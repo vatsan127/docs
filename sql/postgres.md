@@ -68,8 +68,8 @@ operators : = , > , < , >= , <= , <> , != , in , between , not in
 ## _Constraints_
 
 * Primary key : Uniquely Identifies a record in a table
-  *Foreign Key : Primary key from another table , keyword: REFERENCES
-  *Auto_Increment : SERIAL
+* Foreign Key : Primary key from another table , keyword: REFERENCES
+* Auto_Increment : SERIAL
 
 sample data
 
@@ -236,3 +236,38 @@ returns student id with more 2 student_details_info
   duplicates
 * EXCEPT ALL: does not remove duplicate
 
+**Note: Selected columns order and datatype should be same!!**
+
+Syntax:
+
+```
+SELECT column_1, column_2
+FROM table_name_1
+UNION
+SELECT column_1, column_2
+FROM table_name_2;
+```
+
+### _Union_ :
+
+```
+select id from students 
+union
+select student_id from student_info si ;
+```
+
+### _Intersect_ :
+
+```
+select id from students 
+intersect
+select student_id from student_info si ;
+```
+
+### _Except_ :
+
+```
+select id from students 
+except
+select student_id from student_info si ;
+```
