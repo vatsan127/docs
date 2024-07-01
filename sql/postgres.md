@@ -131,7 +131,7 @@ join <JOIN_TABLE> on
 <JOIN_TABLE>.ID = <MAIN_TABLE>.id;
 ```
 
-### _Join / Inner Join:_
+### _Join / Inner Join_
 
 * Rows with reference in both tables will only be present
 
@@ -200,7 +200,7 @@ returns student_id and max value of the student_info.id, grouped by student_id.
 
 ----
 
-## _having:_
+## _having_
 
 * filters set of groups
 * can be used on grouped columns or can be used with Aggregate Func
@@ -226,7 +226,7 @@ returns student id with more 2 student_details_info
 
 ----
 
-## _Unions:_
+## _Unions_
 
 * (QUERY_1) UNION (QUERY_2)  - removes duplicates
 * UNION ALL - does not remove duplicate
@@ -248,7 +248,7 @@ SELECT column_1, column_2
 FROM table_name_2;
 ```
 
-### _Union_ :
+### _Union_ 
 
 ```
 select id from students 
@@ -256,7 +256,7 @@ union
 select student_id from student_info si ;
 ```
 
-### _Intersect_ :
+### _Intersect_ 
 
 ```
 select id from students 
@@ -264,7 +264,7 @@ intersect
 select student_id from student_info si ;
 ```
 
-### _Except_ :
+### _Except_ 
 
 ```
 select id from students 
