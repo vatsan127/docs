@@ -190,7 +190,7 @@ select student_id  from student_info group by student_id;
 
 ----
 
-### _Combine GroupBy and AggregateFunc_
+## _Combine GroupBy and AggregateFunc_
 
 ```
 select student_id, max(id) from student_info group by student_id;
@@ -248,7 +248,7 @@ SELECT column_1, column_2
 FROM table_name_2;
 ```
 
-### _Union_ 
+### _Union_
 
 ```
 select id from students 
@@ -256,7 +256,7 @@ union
 select student_id from student_info si ;
 ```
 
-### _Intersect_ 
+### _Intersect_
 
 ```
 select id from students 
@@ -264,10 +264,12 @@ intersect
 select student_id from student_info si ;
 ```
 
-### _Except_ 
+### _Except_
 
 ```
 select id from students 
 except
 select student_id from student_info si ;
 ```
+
+----
