@@ -1,0 +1,20 @@
+curl -O http://packages.confluent.io/archive/7.0/confluent-community-7.0.14.zip
+unzip confluent-community-7.0.14.zip
+
+cd confluent-7.0.14/
+
+-- major file paths
+vi etc/kafka/zookeeper.properties
+vi etc/kafka/server.properties
+vi etc/schema-registry/schema-registry.properties
+
+-- start components
+bin/zookeeper-server-start etc/kafka/zookeeper.properties
+bin/kafka-server-start etc/kafka/server.properties
+bin/schema-registry-start etc/schema-registry/schema-registry.properties
+
+-- start kafka-clients
+bin/kafka-topics --bootstrap-server localhost:9092 --list
+bin/kafka-topics --bootstrap-server localhost:9092 --create --topic demo --replication-factor 1 --partitions 1
+bin/kafka-console-producer --bootstrap-server localhost:9092 --topic demo
+bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic demo
