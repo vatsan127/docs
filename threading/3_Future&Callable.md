@@ -18,7 +18,7 @@ public class MyCallable implements Callable<Integer> {
 
 ## 2. `Future<V>` Interface:
 
-- used to manage the execution of that task, checking its status, waiting for its result, or
+- used to manage the execution of a task, checking its status, waiting for its result, or
   canceling it.
 
 ### Methods

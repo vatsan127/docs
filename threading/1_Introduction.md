@@ -1,4 +1,4 @@
-# Threads
+# _Threads_
 
 * Threads in Java allow you to perform multiple tasks concurrently, which can improve the efficiency of your programs.
 * The main thread acts as the parent thread in a program. When we start a program, the execution typically begins with
@@ -10,17 +10,17 @@
 
 ## Methods
 
-* **start():** Begins the execution of the thread; the run method is invoked.
-* **run():** Contains the code that constitutes the new thread.
-* **sleep(long millis):** Causes the currently executing thread to sleep (temporarily cease execution) for a specified
+* **`start()`:** Begins the execution of the thread; the run method is invoked.
+* **`run()`:** Contains the code that constitutes the new thread.
+* **`sleep(long millis)`:** Causes the currently executing thread to sleep (temporarily cease execution) for a specified
   period.
-* **join():** Waits for a thread to die (complete execution).
-* **interrupt():** Interrupts a thread that is sleeping or waiting.
-* **getState()**: returns the current state of the thread.
-* **wait()**: make a Thread wait until it is awakened by another thread using same **LOCK** object
-* **notify()**: can be used for awaken Thread that is waiting on the same **LOCK** Object.
-* **getName()**: returns the name of the thread.
-* **getPriority() / setPriority()**: gets/sets the priority of the thread.
+* **`join()`:** Waits for a thread to die (complete execution).
+* **`interrupt()`:** Interrupts a thread that is sleeping or waiting.
+* **`getState()`**: returns the current state of the thread.
+* **`wait()`**: make a Thread wait until it is awakened by another thread using same **LOCK** object
+* **`notify()`**: can be used for awaken Thread that is waiting on the same **LOCK** Object.
+* **`getName()`**: returns the name of the thread.
+* **`getPriority() / setPriority()`**: gets/sets the priority of the thread.
 
 ## States
 

@@ -1,32 +1,29 @@
-# ExecutorService
-
-## Overview
+# _ExecutorService_
 
 The `ExecutorService` is a high-level framework designed to simplify asynchronous task execution and thread management.
 It provides a more flexible and manageable way to handle concurrency compared to using raw threads and `Runnable`
 objects.
 
-## Purpose
+- Abstracts the creation and management of threads, allowing you to submit tasks instead of
+  manually handling threads.
+- Provides mechanisms to schedule tasks for future execution or periodic execution.
+- Optimizes the use of system resources by managing a pool of threads.
 
-1. **Thread Management**: Abstracts the creation and management of threads, allowing you to submit tasks instead of
-   manually handling threads.
-2. **Task Scheduling**: Provides mechanisms to schedule tasks for future execution or periodic execution.
-3. **Concurrency Control**: Manages concurrent task execution efficiently, helping to avoid issues such as thread
-   starvation and resource contention.
-4. **Resource Management**: Optimizes the use of system resources by managing a pool of threads.
+## Methods
 
-### ThreadPoolExecutor Class
+### create
 
-A commonly used implementation of `ExecutorService` that manages a pool of threads and reuses them for task execution.
-It allows fine control over thread pool behavior.
+- **`newSingleThreadExecutor()`:** Creates an Executor that uses a single worker thread to execute tasks sequentially.
+- **`Executors.newScheduledThreadPool(int corePoolSize)`:** Creates a thread pool that can schedule tasks to run after a
+  delay or periodically, with a fixed number of threads.
+- **`newFixedThreadPool(int nThreads)`:** Creates a thread pool with a fixed number of threads, where the threads will
+  be reused for executing tasks.
+- **`newCachedThreadPool()`:** Creates a thread pool that creates new threads as needed, but reuses previously
+  constructed threads when available.
 
-### ScheduledExecutorService Interface
+### delete
 
-Extends `ExecutorService` for scheduling tasks:
-
-- **`ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit)`**: Schedules a `Runnable` task for
-  execution after a specified delay.
-- **`ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)`**:
-  Schedules a `Runnable` task for periodic execution at a fixed rate.
-- **`ScheduledFuture<?> scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit)`**:
-  Schedules a `Runnable` task for periodic execution with a fixed delay between executions.
+* **`shutdown()`:** All tasks that were submitted before the shutdown() call will continue to be executed. This includes
+  tasks that are currently running and those that are waiting in the queue.
+* **`shutdownNow()`:** Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns
+  a list of the tasks that were waiting to be executed.
