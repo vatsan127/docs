@@ -32,7 +32,7 @@ public class MyCallable implements Callable<Integer> {
    the specified timeout.
 
 ----
-Example:
+## Example:
 
 ```java
 public class FutureCallable {
