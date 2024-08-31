@@ -226,7 +226,7 @@ returns student id with more 2 student_details_info
 
 ----
 
-## _Unions_
+## _Unions_ || _Intersect_ || _Except_
 
 * (QUERY_1) UNION (QUERY_2)  - removes duplicates
 * UNION ALL - does not remove duplicate
@@ -273,3 +273,97 @@ select student_id from student_info si ;
 ```
 
 ----
+
+## PostgreSQL Data Types
+
+### NUMERIC TYPES
+
+1. **`SERIAL`** - Auto-incrementing integer often used as the ID column of a table.
+2. **`INTEGER`** (`INT`) - Stores an integer without a decimal. It ranges from -2,147,483,648 to 2,147,483,647.
+3. **`NUMERIC(p, s)`** - Stores a number with a specified precision (`p`) and scale (`s`). This type is very accurate,
+   often used for financial calculations.
+   For example, `NUMERIC(10, 2)` can store up to 10 digits with 2 decimal places.
+4. **`DOUBLE PRECISION`** - Stores a floating-point number. It is less precise than `NUMERIC` but is faster for
+   calculations where perfect precision isn't necessary.
+
+### CHARACTER TYPES
+
+1. **`CHAR(n)`** - Stores a fixed-length string of `n` characters. If the string is shorter than `n`, it is padded with
+   spaces.
+2. **`VARCHAR(n)`** - Stores a variable-length string with a maximum length of `n` characters.
+   For example, `VARCHAR(40)` can store a string up to 40 characters long.
+3. **`VARCHAR`** - Stores a variable-length string with no specified maximum length. PostgreSQL allows a string of any
+   length unless a limit is imposed.
+4. **`TEXT`** - Stores a variable-length string of any length. There is no performance difference between `TEXT` and
+   `VARCHAR`, but `TEXT` is typically used when the string length is not constrained.
+
+### BOOLEAN TYPE
+
+1. **`TRUE`**: Acceptable inputs - `true`, `'yes'`, `'on'`, `1`, `'t'`, `'y'`
+2. **`FALSE`**: Acceptable inputs - `false`, `'no'`, `'off'`, `0`, `'f'`, `'n'`
+3. **`NULL`**: Represents the absence of a value.
+
+### DATE AND TIME TYPES
+
+1. **`DATE`** - Stores a date without time. Format: `YYYY-MM-DD`.
+   Example:
+   ```sql
+      SELECT '1990-11-20'::DATE;
+    * ```
+2. **`TIME`** - Stores time without a date. Format: `HH:MM:SS[.MS]`. Example:
+
+   ```sql
+   SELECT '01:23:00'::TIME AS AM, '13:23:00'::TIME AS PM;
+   ```
+
+3. **`TIME WITH TIME ZONE`** (`TIMETZ`) - Stores time with a time zone. Example:
+
+   ```sql
+    SELECT '01:23:00-05'::TIMETZ AS AM, '13:23:00+05'::TIMETZ AS PM;
+   ```
+
+4. **`TIMESTAMP`** - Stores date and time without time zone. Example:
+
+   ```sql
+    SELECT '1990-11-20 13:23:00'::TIMESTAMP;
+   ```
+5. **`TIMESTAMP WITH TIME ZONE`** (`TIMESTAMPTZ`) - Stores date and time with time zone. Example:
+   ```sql
+   SELECT '1990-11-20 13:23:00-05'::TIMESTAMPTZ;
+   ```
+    * The timestamp is interpreted as `13:23` in the `-05:00` time zone.
+    * PostgreSQL converts it to UTC by adding 5 hours.
+    * Then it adjusts the UTC time to your session's time zone (e.g., `+05:30` for `Asia/Kolkata`).
+    * This results in `1990-11-20 23:53:00 +0530`.
+
+6. Convert System Time to UTC Time:
+
+   ```sql
+   SELECT CURRENT_TIMESTAMP AT TIME ZONE 'UTC' AS utc_time;
+   ```
+
+## PostgreSQL Indexing and Query Analysis
+
+### Creating an Index
+
+   ```sql
+   CREATE INDEX <INDEX_NAME> ON < TABLE_NAME > (< COLUMN_NAME >);
+   ```
+
+### Dropping an index
+
+   ```sql
+    DROP INDEX <INDEX_NAME>;
+   ```
+
+### Query Analysis
+
+* does not run the query
+   ```sql
+   EXECUTE <QUERY>;
+   ```
+* analyze and run the query
+   ```sql
+   EXPLAIN ANALYZE <QUERY>;
+   ```
+
