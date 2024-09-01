@@ -165,9 +165,41 @@ public enum ErrorCode {
 }
 ```
 
+# _Records_ TODO
+
 ---
 
-# _Threads_
+# _Optionals_ TODO
+
+---
+
+# _Access Modifiers_ 
+
+1. **`public`**: it is accessible by any other class.
+2. **`private`**: it is accessible only within the class in which it is declared.
+3. **`protected`**: it is accessible by the classes of the same package and the subclasses residing in any package.
+4. **`default`**: it is accessible only by the classes of the same package.
+
+----
+
+# _Final Keyword_
+
+1. **`Final variable`:** A final variable can only be initialized once, either when it is declared or within the
+   constructor.
+2. **`Final method`:** A final method cannot be overridden by subclasses.
+3. **`Final class`:** A final class cannot be inherited by other classes.
+
+---
+
+# _Static / NonStatic_ TODO
+
+---
+
+# _Garbage Collection_ TODO
+
+---
+
+# _MultiThreading_
 
 * Threads in Java allow you to perform multiple tasks concurrently, which can improve the efficiency of your programs.
 * The main thread acts as the parent thread in a program. When we start a program, the execution typically begins with
@@ -298,3 +330,4 @@ objects.
 * **`shutdownNow()`:** Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns
   a list of the tasks that were waiting to be executed.
 
+---
