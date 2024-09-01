@@ -10,10 +10,14 @@ methods that are common to all objects of one type.
 * It supports the inheritance property of Object-Oriented Programming and hence can maintain the class hierarchy.
 * It helps in maintaining the access specifications of member variables.
 
+---
+
 ## _Object_
 
 * An object is a basic unit of Object-Oriented Programming.
 * It represents real-life entities.
+
+---
 
 ## _Constructor_
 
@@ -32,6 +36,8 @@ methods that are common to all objects of one type.
 ### 3. Private Constructor:
 
 * When a class is initialized with a private constructor, it cannot be instantiated.
+
+---
 
 ## _Components of OOP_
 
@@ -77,6 +83,29 @@ methods that are common to all objects of one type.
 * **`RunTime Polymorphism:`** Achieved when a method in a child class overrides a method in its superclass.
 * **`CompileTime Polymorphism:`** Achieved when two methods have the same name but different parameters.
 
+---
+
+# _Abstract_
+
+## Abstract method:
+
+* can only be used in an abstract class, and it does not have a body.
+* The body is provided by the subclass .
+
+## Abstract class:
+
+* Cannot be instantiated directly.
+* Must be inherited by another class.
+* Can have both abstract and concrete methods.
+* Requires concrete subclasses to implement abstract methods.
+* Can have constructors and static methods.
+* Can have public, protected, and private access specifiers for its members.
+* Can be a `partially completed` class.
+* Can implement interfaces but is not required to implement all of their methods; remaining methods must be implemented
+  by concrete subclasses.
+
+---
+
 # _Interface_
 
 * An interface is a completely `abstract class` that is used to group related methods with empty bodies.
@@ -120,24 +149,7 @@ class Main {
 }
 ```
 
-# _Abstract_
-
-## Abstract method:
-
-* can only be used in an abstract class, and it does not have a body.
-* The body is provided by the subclass .
-
-## Abstract class:
-
-* Cannot be instantiated directly.
-* Must be inherited by another class.
-* Can have both abstract and concrete methods.
-* Requires concrete subclasses to implement abstract methods.
-* Can have constructors and static methods.
-* Can have public, protected, and private access specifiers for its members.
-* Can be a `partially completed` class.
-* Can implement interfaces but is not required to implement all of their methods; remaining methods must be implemented
-  by concrete subclasses.
+---
 
 # _Enum_
 
@@ -152,6 +164,8 @@ public enum ErrorCode {
     TUESDAY("TUESDAY");
 }
 ```
+
+---
 
 # _Threads_
 
@@ -258,7 +272,7 @@ public static void main(String[] args) throws InterruptedException {
 }
 ```
 
-## _ExecutorService_
+## ExecutorService
 
 The `ExecutorService` is a high-level framework designed to simplify asynchronous task execution and thread management.
 It provides a more flexible and manageable way to handle concurrency compared to using raw threads and `Runnable`
