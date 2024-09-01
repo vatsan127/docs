@@ -358,7 +358,7 @@ select student_id from student_info si ;
 
 ### Query Analysis
 
-* does not run the query
+* analyze query
    ```sql
    EXECUTE <QUERY>;
    ```
