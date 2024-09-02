@@ -231,23 +231,23 @@ public record Person(String name, String address) {
 
 Optionals is a container object that may or may not contain a non-null value.
 
-- **`get()`:** Retrieves the value contained in the `Optional` if present; otherwise, it throws
+- **`get()`:** Retrieves the value contained in the Optional if present; otherwise, it throws
   `NoSuchElementException`.
 
-- **`isPresent()`:** Checks if the `Optional` contains a non-null value. Returns `true` if a value is present, `false`
+- **`isPresent()`:** Checks if the Optional contains a non-null value. Returns `true` if a value is present, `false`
   otherwise.
 
 - **`orElse(T other)`:** Returns the value if present; otherwise, returns the provided default value `other`.
 
 - **`orElseThrow()`:** Returns the value if present; otherwise, throws an exception
 
-- **`empty()`:** Creates an empty `Optional` that contains no value.
+- **`empty()`:** Creates an empty Optional that contains no value.
 
-- **`of(T value)`:** Creates an `Optional` containing the specified non-null value. Throws `NullPointerException` if the
+- **`of(T value)`:** Creates an Optional containing the specified non-null value. Throws `NullPointerException` if the
   value is `null`.
 
-- **`ofNullable(T value)`:** Creates an `Optional` containing the specified value if it's non-null; otherwise, creates
-  an empty `Optional`.
+- **`ofNullable(T value)`:** Creates an Optional containing the specified value if it's non-null; otherwise, creates
+  an empty Optional.
 
 ---
 
