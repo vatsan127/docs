@@ -165,7 +165,63 @@ public enum ErrorCode {
 }
 ```
 
-# _Records_ TODO
+# _Records_
+
+- Records are immutable, meaning that once an instance is created, its fields cannot be modified.
+- Records require only the type and name of fields.
+- **Automatic Methods**:
+    - **`equals(Object o)`**: Compares two records for equality based on their fields.
+    - **`hashCode()`**: Computes a hash code based on the fields.
+    - **`toString()`**: Provides a string representation that includes the record's name and fields.
+- Fields in a record are by default private and final.
+- Getters are generated for each field and named after the fields .
+
+## Canonical Constructor
+
+- It initializes all fields of the record and ensures they are properly set.
+- The canonical constructor is automatically provided by the Java compiler.
+- **Example**:
+
+```java
+public record Person(String name, String address) {
+    // Canonical constructor is automatically provided
+}
+```
+
+## Compact Constructor
+
+* An optional constructor that you can define to perform additional validation or processing.
+* It is invoked by the canonical constructor and does not need to reinitialize fields.
+
+```java
+public record Person(String name, String address) {
+    // Compact constructor for additional validation
+    public Person {
+        if (name == null || address == null) {
+            throw new IllegalArgumentException("Name and address cannot be null");
+        }
+    }
+}
+
+```
+
+## Static Factory Methods
+
+* Methods that provide alternative ways to create instances of the record.
+* They can include custom logic or constraints for instance creation.
+
+```java
+public record Person(String name, String address) {
+    // Static factory method
+    public static Person of(String name, String address) {
+        if (name == null || address == null) {
+            throw new IllegalArgumentException("Name and address cannot be null");
+        }
+        return new Person(name, address);
+    }
+}
+
+```
 
 ---
 
@@ -173,7 +229,7 @@ public enum ErrorCode {
 
 ---
 
-# _Access Modifiers_ 
+# _Access Modifiers_
 
 1. **`public`**: it is accessible by any other class.
 2. **`private`**: it is accessible only within the class in which it is declared.
