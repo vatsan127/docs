@@ -9,7 +9,7 @@ These are operations that transform a stream into another stream. They are lazy,
 terminal operation is invoked.
 
 * **`filter`:** filters elements based on the Perdicate.
-* **`map`:** Filters elements based on a predicate.
+* **`map`:** It converts each element in the Stream into another form or type.
 * **`sorted`:** Sorts elements in a natural order or using a comparator.
 * **`distinct`:** Removes duplicate elements.
 
@@ -17,7 +17,12 @@ terminal operation is invoked.
 
 These operations produce a result ,when the stream pipeline is executed.
 
-sampleCollection: `List<String> list = Arrays.asList("Apple", "Avocado", "Banana", "Blueberry");`
+sampleCollection:
+
+```
+List<String> list = Arrays.asList("Apple", "Avocado", "Banana", "Blueberry");
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+```
 
 * **`forEach`:** Performs an action for each element.
 
@@ -34,7 +39,6 @@ Set<String> set = list.stream().collect(Collectors.toSet());
 * **`reduce`:** Aggregates elements to produce a single result.
 
 ```
-List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 int sum = numbers.stream().reduce(0, Integer::sum);
 ```
 
@@ -77,7 +81,6 @@ Optional<String> shortestFruit = list.stream().collect(
 * **`summingInt()`:** returns sum as a result
 
 ```
-List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 int totalSum = numbers.stream().collect
 (
     Collectors.summingInt(Integer::intValue)
@@ -87,7 +90,6 @@ int totalSum = numbers.stream().collect
 * **`averageint()`:** returns average as a result
 
 ```
-List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 OptionalDouble average = numbers.stream().mapToInt(Integer::intValue).average();
 
 ```
