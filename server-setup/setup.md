@@ -17,7 +17,9 @@ java -version
 ----
 ## _Install .deb package_
 
+```
 sudo dpkg -i <package_name>.deb
+```
 
 ----
 
