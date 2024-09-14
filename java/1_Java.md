@@ -94,10 +94,8 @@ methods that are common to all objects of one type.
 
 ## Abstract class:
 
-* Cannot be instantiated directly.
-* Must be inherited by another class.
+* Cannot be instantiated directly. Must be inherited by another class.
 * Can have both abstract and concrete methods.
-* Requires concrete subclasses to implement abstract methods.
 * Can have constructors and static methods.
 * Can have public, protected, and private access specifiers for its members.
 * Can be a `partially completed` class.
@@ -108,16 +106,36 @@ methods that are common to all objects of one type.
 
 # _Interface_
 
-* An interface is a completely `abstract class` that is used to group related methods with empty bodies.
-* Like abstract classes, interfaces cannot be used to create objects.
-* Interface methods do not have a body - the body is provided by the `implement` class.
-* On implementation of an interface, you must override all of its methods.
-* Interface methods are by `default abstract` and `public`.
-* Interface attributes are by `default public, static and final`.
+* An Interface tells what needs to be implemented and a class can decide how it can be implemented.
 * An interface cannot contain a constructor (as it cannot be used to create objects).
-* It can be achieved with interfaces, because the class can implement multiple interfaces
+* On implementation of an interface, you must override all of its methods.
+* Interface attributes are by `default public, static and final`.
+* Interface methods are by `public` and `default abstract`.
 
-### Multiple Inheritance in Java
+## _Interface References_
+
+* An interface reference can be assigned to any implementation.
+* For example, `List<?> list` can refer to any implementation such as `ArrayList`, `LinkedList`, etc. However,
+  when using the interface type to create an object, only the methods defined by the interface can be accessed; methods
+  specific to the implementation class cannot be accessed.
+* This approach provides flexibility and abstraction. It allows to write code that is not dependent on a specific
+  implementation. This can be useful for writing generic code
+
+## _Default Methods_
+
+* Default methods provide implementations within an interface.
+* These methods can be overridden by the class implementing the interface.
+* Can be called with the Object that is implementing this interface.
+
+## _Static Methods_
+
+* Static methods provide implementations within an interface.
+* These methods cannot be overridden by the class implementing the interface.
+* They can be invoked directly using the containing interface.
+
+
+
+### Multiple Inheritance in Java with Interface
 
 ```java
 interface FirstInterface {
