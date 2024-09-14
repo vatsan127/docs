@@ -15,6 +15,36 @@ java -version
 ```
 
 ----
+## _Install .deb package_
+
+```
+sudo dpkg -i <package_name>.deb
+```
+
+----
+
+## _Maven_
+
+```
+wget https://mirrors.estointernet.in/apache/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+```
+```
+tar -xvf apache-maven-3.9.9-bin.tar.gz
+```
+```
+mv apache-maven-3.9.9 /opt/
+```
+```
+vim ~/.bashrc
+```
+```
+M2_HOME='/opt/apache-maven-3.9.9'
+PATH="$M2_HOME/bin:$PATH"
+```
+```
+source ~/.bashrc
+```
+----
 
 ## _Alien RPM_
 
@@ -57,7 +87,9 @@ sudo docker ps
 ```
 sudo usermod -aG docker $USER
 ```
-
+```
+newgrp docker
+```
 ```
 sudo systemctl enable docker
 ```
@@ -65,7 +97,6 @@ sudo systemctl enable docker
 ```
 sudo systemctl status docker
 ```
-
 ----
 
 ## _Kubectl_
