@@ -1,4 +1,133 @@
 -- ========================
+-- String Operations
+-- ========================
+
+SELECT * FROM USERS U ;
+SELECT CONCAT(FIRST_NAME , ' ', LAST_NAME) AS FULLNAME FROM USERS;
+SELECT UPPER(FIRST_NAME) FROM USERS ;
+SELECT LOWER(FIRST_NAME) FROM USERS ;
+SELECT FIRST_NAME, LENGTH(FIRST_NAME) FROM USERS;
+
+-- ========================
+-- Comparison
+-- ========================
+-- Order of execution will be first FROM clause, then WHERE clause and finally SELECT will be executed
+-- operators : = , > , < , >= , <= , <> , != , in , between , not in
+
+-- ========================
+-- Constraints
+-- ========================
+-- PRIMARY KEY : Uniquely Identifies a record in a table
+-- FOREIGN KEY : Primary key from another table , keyword: REFERENCES
+-- UNIQUE
+-- AUTO_INCREMENT
+
+CREATE TABLE STUDENTS (
+  ID INT AUTO_INCREMENT,
+  NAME VARCHAR(50),
+  PRIMARY KEY (ID)
+);
+
+CREATE TABLE DETAILS (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  DETAILS VARCHAR(1000),
+  STUDENT_ID INT,
+  FOREIGN KEY (STUDENT_ID) REFERENCES STUDENTS(ID)
+);
+
+-- ========================
+-- On Delete Options
+-- ========================
+-- ON DELETE RESTRICT: Prevents the deletion of the referenced row in the parent table if there are matching rows in the child table. The deletion is rejected.
+-- ON DELETE NO ACTION: Similar to RESTRICT, but the check is deferred until the end of the transaction.
+-- ON DELETE CASCADE: Deletes the matching rows in the child table when the referenced row in the parent table is deleted.
+-- ON DELETE SET NULL: Sets the foreign key column in the child table to NULL when the referenced row in the parent table is deleted. This requires the foreign key column in the child table to be NULLABLE.
+-- ON DELETE SET DEFAULT: Sets the foreign key column in the child table to its default value when the referenced row in the parent table is deleted. Note that MySQL does not support SET DEFAULT directly, so it's not available.
+
+CREATE TABLE <TABLE_NAME>(
+   COLUMN 1 PRIMARY KEY,
+   COLUMN 2 <DATA_TYPE>,
+   COLUMN 3 <DATA_TYPE> REFERENCES <FOREIGN_KEY> <ON_DELETE_OPTION>
+);
+
+
+-- ========================
+-- Joins
+-- ========================
+
+select <COLUMN> from <MAIN_TABLE>
+    join <JOIN_TABLE> on
+        <JOIN_TABLE>.ID = <MAIN_TABLE>.id;
+
+
+/* Join / Inner Join
+Rows with reference in both tables will only be present
+
+* Left Join
+Rows with no reference to Joined table will also be selected from the Main table.
+
+* Right Join
+Rows with no reference to Main table will also be selected from the Joined table.
+
+* Full Join
+All data without any refernce to Main or Joined tables will also be selected */
+
+-- ========================
+-- Group By
+-- ========================
+/*
+ *find the set of all unique user_id
+ *takes each row and assign it to a group based on a particular column used
+ *can only group the selected column
+ */
+
+-- ========================
+-- Aggregate Func
+-- ========================
+
+-- can be used with columns other than grouped columns
+-- count(<column_name>) null values are not counted
+-- count(*) get total number of rows with null values
+-- sum()
+-- avg()
+-- min()
+-- max()
+
+-- ========================
+-- having
+-- ========================
+-- filters set of groups
+-- can be used on grouped columns or can be used with Aggregate Func
+
+-- =============================
+-- Unions || Intersect || Except
+-- =============================
+
+-- (QUERY_1) UNION (QUERY_2) - removes duplicates
+-- UNION ALL - does not remove duplicate
+-- INTERSECT: find the rows in common AND removes duplicates
+-- INTERSECT ALL: does not remove duplicates
+-- EXCEPT: find the rows present that are present in first query but not second query,query order matters , Removes duplicates
+-- EXCEPT ALL: does not remove duplicate
+
+/*Note: Selected columns order and datatype should be same!!*/
+
+SELECT COLUMN_1, COLUMN_2
+FROM TABLE_NAME_1
+UNION
+SELECT COLUMN_1, COLUMN_2
+FROM TABLE_NAME_2;
+
+-- ========================
+-- Query Analysis
+-- ========================
+-- analyze query
+EXECUTE <QUERY>;
+-- analyze and run the query
+EXPLAIN ANALYZE <QUERY>;
+
+
+-- ========================
 -- Subqueries
 -- ========================
 
@@ -317,8 +446,5 @@ END $$
 
 DELIMITER ;
 
--- Select all transactions to verify changes
 SELECT * FROM transactions;
-
--- Insert a new transaction with null status
 INSERT INTO transactions (id, value, status)
