@@ -171,10 +171,10 @@ It ensures that these operations either succeed completely or fail completely, m
 
 ACID Properties
 =================
-1. Atomicity: Ensures that a transaction is all-or-nothing.
-2. Consistency: Ensures that a transaction brings the database from one valid state to another.
-3. Isolation: Ensures that the operations of one transaction are independent of other concurrent transactions.
-4. Durability: Ensures that once a transaction is committed, the changes made are permanent.
+ 1. Atomicity: Ensures that a transaction is all-or-nothing. Either all operations within the transaction are completed successfully, or none are applied (rolled back in case of failure).
+ 2. Consistency: Ensures that a transaction brings the database from one valid state to another. The data should be valid both before and after the transaction, ensuring data integrity.
+ 3. Isolation: Ensures that the operations of one transaction are independent of other concurrent transactions. The outcome of a transaction should not be affected by others running simultaneously.
+ 4. Durability: Ensures that once a transaction is committed, the changes made are permanent, even in the case of a system failure (e.g., power loss).
 */
 
 -- Stored procedure to update a transaction
