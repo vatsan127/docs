@@ -105,14 +105,14 @@ git config --global --unset alias.alias_name
 Alias created Locally
 
 ```
-alias.st status
-alias.co checkout
-alias.get pull origin
-alias.set push origin
-alias.unstage reset --
-alias.rh reset --hard
-alias.cp cherry-pick -m 1
-alias.cm commit -m
+git config --global alias.st "status" &&
+git config --global alias.co "checkout" &&
+git config --global alias.get "pull origin" &&
+git config --global alias.set "push origin" &&
+git config --global alias.unstage "reset --" &&
+git config --global alias.rh "reset --hard" &&
+git config --global alias.cp "cherry-pick -m 1" &&
+git config --global alias.cm "commit -m" 
 ```
 
 ---
