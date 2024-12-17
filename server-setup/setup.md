@@ -3,15 +3,15 @@
 ## _Java_
 
 ```
-wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
+wget https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.deb
 ```
 
 ```
-sudo apt install ./jdk-17_linux-x64_bin.deb
+sudo apt install jdk-17.0.12_linux-x64_bin.deb
 ```
 
 ```
-java -version
+java --version
 ```
 
 ----
